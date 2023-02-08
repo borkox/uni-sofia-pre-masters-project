@@ -1,0 +1,29 @@
+@startuml
+
+start
+:setup network;
+while (episode < NUM_EPISODES or Solved?) is (yes)
+    :Initialize new episode
+    __env.reset()__;
+
+    while (_ < MAX_STEPS or Done?) is (yes)
+      :Simulate next step
+      __nest.Simulate(STEP)__;
+      :choose action based
+      on spikes in WTA;
+      :Move agent
+      __new_state, reward = env.step(action)__;
+      if (reward > 0 ?) then (yes)
+        :Learn network
+        __nest.Simulate(LEARN_TIME)__;
+      endif
+      :Relax network
+      __nest.Simulate(REST_TIME)__;
+    endwhile (no)
+endwhile (no)
+
+:Save results;
+
+stop
+
+@enduml
