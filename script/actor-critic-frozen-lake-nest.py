@@ -7,7 +7,7 @@ from gym.envs.toy_text import FrozenLakeEnv
 
 
 # number of episodes to run
-NUM_EPISODES = 10
+NUM_EPISODES = 30
 # max steps per episode
 MAX_STEPS = 100
 # Saves scores to file evey SAVE_SCORES_STEPS steps
@@ -341,7 +341,7 @@ for episode in range(NUM_EPISODES):
         print("Save scores")
         np.savetxt('outputs/scores.txt', scores, delimiter=',')
     if len(scores) % DRAW_ARROWS_STEPS == 0:
-        plot_values(draw_image=True, image_name=f'outputs/images/arrows_{len(scores)}x{WORLD_COLS}_{WORLD_ROWS}.png')
+        plot_values(draw_image=True, image_name=f'outputs/images/arrows_{len(scores)}_{WORLD_COLS}x{WORLD_ROWS}.png')
 
 
 # if reward > 0:
