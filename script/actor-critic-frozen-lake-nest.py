@@ -1,10 +1,58 @@
+import os, sys, getopt, glob
 import gym
 from collections import deque
-import nest.voltage_trace
 import matplotlib.pyplot as plt
 import numpy as np
 from gym.envs.toy_text import FrozenLakeEnv
+from pathlib import Path
 
+environment_type = '3x3'
+slippery = False
+output_base = "./outputs"
+opts, args = getopt.getopt(sys.argv[1:],"h:e:s:o",["help","env=","slippery=","output="])
+print ("Started with options: ", opts)
+for opt, arg in opts:
+    if opt in ("-h", "--help"):
+        print ('USAGE:> actor-critic-frozen-lake-nest.py OPTIONS')
+        print ('OPTIONS: ')
+        print ('   -e <environment>')
+        print ('   --env <environment>')
+        print ('        where <environment> is one of: 3x3,4x4, default 3x3')
+        print ('')
+        print ('   -s <slippery>')
+        print ('   --slippery=<slippery>')
+        print ('       where <slippery> is one of: true,false, default false')
+        print ('')
+        print ('   -o <output>')
+        print ('   --output=<output>')
+        print ('       where <output> is output folder, default "./output"')
+        sys.exit()
+    elif opt in ("-e", "--env"):
+        if arg not in ("3x3","4x4"):
+            print("Unknown environment:", arg)
+            sys.exit()
+        environment_type = arg
+    elif opt in ("-s", "--slippery"):
+        slippery = 'true' == arg.lower()
+    elif opt in ("-o", "--output"):
+        output_base = arg
+    else:
+        print("Unknown option:", opt)
+        sys.exit()
+
+
+print ('Environment: ', environment_type)
+print ('slippery: ', slippery)
+print ('output_folder: ', output_base)
+
+import nest.voltage_trace
+
+output_folder = output_base + "/" + environment_type
+# Ensure folder with resources exists
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+# Clean output folder
+[f.unlink() for f in Path(output_folder).glob("*") if f.is_file()]
 
 # number of episodes to run
 NUM_EPISODES = 30
@@ -19,10 +67,11 @@ SOLVED_MEAN_SCORE = 0.5
 SOLVED_MIN_EPISODES = 3
 # current time while it runs
 current_time = 0
-# STEP is milliseconds to run active simulation
+# STEP is milliseconds to wait WTA to become functional
 STEP = 150
-# REST_TIME is milliseconds to run rest for WTA and perform dopamine STDP
+# Learn time is when WTA is still active and dopamine is activated
 LEARN_TIME = 20
+# REST_TIME is milliseconds to run rest for WTA and perform dopamine STDP
 REST_TIME = 50
 # Noise constants
 NOISE_DA_NEURONS_WEIGHT = 0.01
@@ -39,11 +88,13 @@ nest.ResetKernel()
 
 # ================= Environment ==================
 # Make environment
-# env = gym.make('FrozenLake-v0')
-env = FrozenLakeEnv(desc=["SFF",
-                          "FFH",
-                          "FFG"], is_slippery=False)
-# env = FrozenLakeEnv(is_slippery=False)
+if environment_type == '3x3':
+    env = FrozenLakeEnv(desc=["SFF",
+                              "FFH",
+                              "FFG"], is_slippery=slippery)
+else:
+    env = FrozenLakeEnv(is_slippery=slippery)
+
 WORLD_ROWS = env.nrow
 WORLD_COLS = env.ncol
 print("World dimensions: ", WORLD_COLS, WORLD_ROWS)
@@ -339,24 +390,24 @@ for episode in range(NUM_EPISODES):
         print('Mean score: ', np.array(recent_scores).mean())
     if len(scores) % SAVE_SCORES_STEPS == 0:
         print("Save scores")
-        np.savetxt('outputs/scores.txt', scores, delimiter=',')
+        np.savetxt(output_folder + '/scores.txt', scores, delimiter=',')
     if len(scores) % DRAW_ARROWS_STEPS == 0:
         plot_values(draw_image=True, image_name=f'outputs/images/arrows_{len(scores)}_{WORLD_COLS}x{WORLD_ROWS}.png')
 
 
 # if reward > 0:
     #     break
-np.savetxt('outputs/scores.txt', scores, delimiter=',')
-plot_values(draw_image=True, image_name=f'outputs/images/arrows_{WORLD_COLS}_{WORLD_ROWS}.png')
+np.savetxt(output_folder + '/scores.txt', scores, delimiter=',')
+plot_values(draw_image=True, image_name=f'{output_folder}/arrows_{WORLD_COLS}_{WORLD_ROWS}.png')
 
 print("====== all_states === all_actions ===")
 print(nest.GetConnections(all_states, all_actions))
 
 nest.raster_plot.from_device(sd_wta, hist=True, title="sd_wta")
-plt.savefig(f'outputs/images/sd_wta_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
+plt.savefig(f'{output_folder}/sd_wta_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
 nest.raster_plot.from_device(sd_states, hist=True, title="sd_states")
-plt.savefig(f'outputs/images/sd_states_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
+plt.savefig(f'{output_folder}/sd_states_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
 nest.raster_plot.from_device(sd_DA, hist=True, title="sd_DA")
-plt.savefig(f'outputs/images/sd_DA_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
+plt.savefig(f'{output_folder}/sd_DA_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
 nest.raster_plot.from_device(sd_critic, hist=True, title="sd_critic")
-plt.savefig(f'outputs/images/sd_critic_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
+plt.savefig(f'{output_folder}/sd_critic_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
