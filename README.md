@@ -22,5 +22,14 @@ Make sure you have conda environment 'nest-env'
 ```shell
 conda activate nest-env
 cd script/
-python ./actor-critic-frozen-lake-nest.py
+python actor-critic-frozen-lake-nest.py -e 3x3 -s false -o outputs -c true -n 60
 ```
+
+Options for `actor-critic-frozen-lake-nest.py` :
+* `-h` :prints help message
+* `-e <environment>` : This is predefined choice from `3x3` or `4x4`.
+* `-s <slippery>`: Slippery, `true` or `false`, default `false`
+* `-o <output_folder>` : where to save pictures and text files
+* `-c <clean>` : boolean `true` or `false` whether to clean output folder, default `true`.
+* `-n <max_number_episodes>` : int, maxmum number of episodes to run, default 60.
+

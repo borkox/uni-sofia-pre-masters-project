@@ -8,34 +8,39 @@ from pathlib import Path
 
 environment_type = '3x3'
 slippery = False
+clean_output = True
 output_base = "./outputs"
-opts, args = getopt.getopt(sys.argv[1:],"h:e:s:o",["help","env=","slippery=","output="])
-print ("Started with options: ", opts)
+max_number_episodes = 60
+opts, args = getopt.getopt(sys.argv[1:],"he:s:o:c:n:")
+print (f"Script {sys.argv[0]} started with options: ", opts)
 for opt, arg in opts:
     if opt in ("-h", "--help"):
         print ('USAGE:> actor-critic-frozen-lake-nest.py OPTIONS')
         print ('OPTIONS: ')
         print ('   -e <environment>')
-        print ('   --env <environment>')
         print ('        where <environment> is one of: 3x3,4x4, default 3x3')
-        print ('')
         print ('   -s <slippery>')
-        print ('   --slippery=<slippery>')
         print ('       where <slippery> is one of: true,false, default false')
-        print ('')
         print ('   -o <output>')
-        print ('   --output=<output>')
         print ('       where <output> is output folder, default "./output"')
+        print ('   -c <clean_output>')
+        print ('       where <clean_output> is true or false, default true.')
+        print ('   -n <num_episodes>')
+        print ('       where <num_episodes> is max number of episodes, default 60.')
         sys.exit()
-    elif opt in ("-e", "--env"):
+    elif opt in ("-e"):
         if arg not in ("3x3","4x4"):
             print("Unknown environment:", arg)
             sys.exit()
         environment_type = arg
-    elif opt in ("-s", "--slippery"):
+    elif opt in ("-s"):
         slippery = 'true' == arg.lower()
-    elif opt in ("-o", "--output"):
+    elif opt in ("-o"):
         output_base = arg
+    elif opt in ("-n"):
+        max_number_episodes = int(arg)
+    elif opt in ("-c"):
+        clean_output = 'true' == arg.lower()
     else:
         print("Unknown option:", opt)
         sys.exit()
@@ -44,6 +49,7 @@ for opt, arg in opts:
 print ('Environment: ', environment_type)
 print ('slippery: ', slippery)
 print ('output_folder: ', output_base)
+print ('clean_output: ', clean_output)
 
 import nest.voltage_trace
 
@@ -52,10 +58,11 @@ output_folder = output_base + "/" + environment_type
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 # Clean output folder
-[f.unlink() for f in Path(output_folder).glob("*") if f.is_file()]
+if clean_output:
+    [f.unlink() for f in Path(output_folder).glob("*") if f.is_file()]
 
 # number of episodes to run
-NUM_EPISODES = 30
+NUM_EPISODES = max_number_episodes
 # max steps per episode
 MAX_STEPS = 100
 # Saves scores to file evey SAVE_SCORES_STEPS steps
@@ -93,6 +100,7 @@ if environment_type == '3x3':
                               "FFH",
                               "FFG"], is_slippery=slippery)
 else:
+    # Makes 4x4 environment
     env = FrozenLakeEnv(is_slippery=slippery)
 
 WORLD_ROWS = env.nrow
@@ -392,7 +400,7 @@ for episode in range(NUM_EPISODES):
         print("Save scores")
         np.savetxt(output_folder + '/scores.txt', scores, delimiter=',')
     if len(scores) % DRAW_ARROWS_STEPS == 0:
-        plot_values(draw_image=True, image_name=f'outputs/images/arrows_{len(scores)}_{WORLD_COLS}x{WORLD_ROWS}.png')
+        plot_values(draw_image=True, image_name=f'{output_folder}/arrows_{len(scores)}_{WORLD_COLS}x{WORLD_ROWS}.png')
 
 
 # if reward > 0:
@@ -404,10 +412,13 @@ print("====== all_states === all_actions ===")
 print(nest.GetConnections(all_states, all_actions))
 
 nest.raster_plot.from_device(sd_wta, hist=True, title="sd_wta")
-plt.savefig(f'{output_folder}/sd_wta_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
+plt.savefig(f'{output_folder}/sd_wta.png', format='png')
 nest.raster_plot.from_device(sd_states, hist=True, title="sd_states")
-plt.savefig(f'{output_folder}/sd_states_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
+plt.savefig(f'{output_folder}/sd_states.png', format='png')
 nest.raster_plot.from_device(sd_DA, hist=True, title="sd_DA")
-plt.savefig(f'{output_folder}/sd_DA_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
+plt.savefig(f'{output_folder}/sd_DA.png', format='png')
 nest.raster_plot.from_device(sd_critic, hist=True, title="sd_critic")
-plt.savefig(f'{output_folder}/sd_critic_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
+plt.savefig(f'{output_folder}/sd_critic.png', format='png')
+
+# Print scores
+os.system(f"python ./plot_scores.py -i {output_folder}/scores.txt -o {output_folder}/final_scores.png")
