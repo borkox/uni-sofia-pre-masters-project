@@ -15,3 +15,12 @@ pip install pyglet==1.5.27
 pip install swig
 pip install gym[box2d]==0.7.0
 ```
+
+# Run the application
+Make sure you have conda environment 'nest-env'
+
+```shell
+conda activate nest-env
+cd script/
+python ./actor-critic-frozen-lake-nest.py
+```

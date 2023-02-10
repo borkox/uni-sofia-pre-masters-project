@@ -7,13 +7,15 @@ from gym.envs.toy_text import FrozenLakeEnv
 
 
 # number of episodes to run
-NUM_EPISODES = 60
+NUM_EPISODES = 10
 # max steps per episode
 MAX_STEPS = 100
 # Saves scores to file evey SAVE_SCORES_STEPS steps
 SAVE_SCORES_STEPS = 5
+DRAW_ARROWS_STEPS = 5
 # score agent needs for environment to be solved
-SOLVED_MEAN_SCORE = 0.9
+SOLVED_HISTORY_SCORES_LEN = 10
+SOLVED_MEAN_SCORE = 0.5
 SOLVED_MIN_EPISODES = 3
 # current time while it runs
 current_time = 0
@@ -44,14 +46,17 @@ env = FrozenLakeEnv(desc=["SFF",
 # env = FrozenLakeEnv(is_slippery=False)
 WORLD_ROWS = env.nrow
 WORLD_COLS = env.ncol
+print("World dimensions: ", WORLD_COLS, WORLD_ROWS)
 world_dim = {'x': WORLD_COLS, 'y': WORLD_ROWS}
 num_actions = 4
 possible_actions = [0, 1, 2, 3]
 possible_actions_str = ["LEFT", "DOWN", "RIGHT", "UP"]
 # ================================================
 
-def plot_values(fig, ax, position):
-    plt.cla()
+def plot_values(draw_image=False, image_name=None):
+    if draw_image:
+        fig, ax = plt.subplots()
+        plt.cla()
 
     values_plot = []
 
@@ -64,33 +69,38 @@ def plot_values(fig, ax, position):
                 q_down = np.mean(nest.GetStatus(nest.GetConnections(states[j][i], actions[1]), 'weight'))
                 q_right = np.mean(nest.GetStatus(nest.GetConnections(states[j][i], actions[2]), 'weight'))
                 q_up = np.mean(nest.GetStatus(nest.GetConnections(states[j][i], actions[3]), 'weight'))
-                ax.arrow(j, i, (q_right-q_left)/10., (q_down-q_up)/10., head_width=0.05, head_length=0.1, fc='k', ec='k')
+                if draw_image:
+                    ax.arrow(j, i, (q_right-q_left)/10., (q_down-q_up)/10., head_width=0.05, head_length=0.1, fc='k', ec='k')
 
 
     values_plot = np.array(values_plot)
-    print(values_plot)
+    with np.printoptions(precision=3, suppress=True):
+        print(values_plot)
 
-    plt.imshow(values_plot, interpolation='none', vmax=1 * WEIGHT_SCALING, vmin=-1 * WEIGHT_SCALING)
+    if draw_image:
+        # plt.imshow(values_plot, interpolation='none', vmax=1 * WEIGHT_SCALING, vmin=-1 * WEIGHT_SCALING)
+        plt.imshow(values_plot, interpolation='none', vmax=1 * WEIGHT_SCALING, vmin=-1 * WEIGHT_SCALING)
 
-    xlabels = np.arange(0, len(states))
-    ylabels = np.arange(0, len(states[0]))
+        xlabels = np.arange(0, len(states))
+        ylabels = np.arange(0, len(states[0]))
 
-    # Set the major ticks at the centers and minor tick at the edges
-    xlocs = np.arange(len(xlabels))
-    ylocs = np.arange(len(ylabels))
-    ax.xaxis.set_ticks(xlocs + 0.5, minor=True)
-    ax.xaxis.set(ticks=xlocs, ticklabels=xlabels)
-    ax.yaxis.set_ticks(ylocs + 0.5, minor=True)
-    ax.yaxis.set(ticks=ylocs, ticklabels=ylabels)
+        # Set the major ticks at the centers and minor tick at the edges
+        xlocs = np.arange(len(xlabels))
+        ylocs = np.arange(len(ylabels))
+        ax.xaxis.set_ticks(xlocs + 0.5, minor=True)
+        ax.xaxis.set(ticks=xlocs, ticklabels=xlabels)
+        ax.yaxis.set_ticks(ylocs + 0.5, minor=True)
+        ax.yaxis.set(ticks=ylocs, ticklabels=ylabels)
 
-    # Turn on the grid for the minor ticks
-    ax.grid(True, which='minor', linestyle='-', linewidth=2)
+        # Turn on the grid for the minor ticks
+        ax.grid(True, which='minor', linestyle='-', linewidth=2)
 
-    for txt in ax.texts:
-        txt.set_visible(False)
+        for txt in ax.texts:
+            txt.set_visible(False)
+        plt.savefig(image_name, format='png')
 
-    ax.annotate(".", ((position['x'] + 0.5)/len(states), (1-(position['y'] + 0.5)/len(states[0]))), size=160, textcoords='axes fraction', color='white')
-    #plt.draw()
+    # ax.annotate(".", ((position['x'] + 0.5)/len(states), (1-(position['y'] + 0.5)/len(states[0]))), size=160, textcoords='axes fraction', color='white')
+    # plt.draw()
 # ================================================
 
 
@@ -217,12 +227,9 @@ print(f"Action space: {env.action_space.n}")
 
 # track scores
 scores = []
-# interactive plotting
-fig, ax = plt.subplots()
-# plt.ion()
 
 # track recent scores
-recent_scores = deque(maxlen=100)
+recent_scores = deque(maxlen=SOLVED_HISTORY_SCORES_LEN)
 prev_spikes = 0
 # run episodes
 for episode in range(NUM_EPISODES):
@@ -294,7 +301,7 @@ for episode in range(NUM_EPISODES):
         current_time += REST_TIME
 
         # plotting
-        plot_values(fig, ax, {'x':state_x, 'y': state_y})
+        plot_values()
 
 
         # if done:
@@ -323,7 +330,9 @@ for episode in range(NUM_EPISODES):
     recent_scores.append(score)
 
     # early stopping if we meet solved score goal
-    if len(recent_scores) > SOLVED_MIN_EPISODES and np.array(recent_scores).mean() >= SOLVED_MEAN_SCORE:
+    if len(recent_scores) > SOLVED_MIN_EPISODES \
+            and np.array(recent_scores).mean() >= SOLVED_MEAN_SCORE \
+            and reward > SOLVED_MEAN_SCORE: # We want spikes to be snapshot when actually episode is solved
         print("SOLVED")
         break
     else:
@@ -331,18 +340,23 @@ for episode in range(NUM_EPISODES):
     if len(scores) % SAVE_SCORES_STEPS == 0:
         print("Save scores")
         np.savetxt('outputs/scores.txt', scores, delimiter=',')
-    # if reward > 0:
+    if len(scores) % DRAW_ARROWS_STEPS == 0:
+        plot_values(draw_image=True, image_name=f'outputs/images/arrows_{len(scores)}x{WORLD_COLS}_{WORLD_ROWS}.png')
+
+
+# if reward > 0:
     #     break
 np.savetxt('outputs/scores.txt', scores, delimiter=',')
+plot_values(draw_image=True, image_name=f'outputs/images/arrows_{WORLD_COLS}_{WORLD_ROWS}.png')
 
 print("====== all_states === all_actions ===")
 print(nest.GetConnections(all_states, all_actions))
 
 nest.raster_plot.from_device(sd_wta, hist=True, title="sd_wta")
-plt.show()
+plt.savefig(f'outputs/images/sd_wta_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
 nest.raster_plot.from_device(sd_states, hist=True, title="sd_states")
-plt.show()
+plt.savefig(f'outputs/images/sd_states_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
 nest.raster_plot.from_device(sd_DA, hist=True, title="sd_DA")
-plt.show()
+plt.savefig(f'outputs/images/sd_DA_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
 nest.raster_plot.from_device(sd_critic, hist=True, title="sd_critic")
-plt.show()
+plt.savefig(f'outputs/images/sd_critic_{WORLD_COLS}x{WORLD_ROWS}.png', format='png')
