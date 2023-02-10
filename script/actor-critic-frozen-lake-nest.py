@@ -400,13 +400,13 @@ for episode in range(NUM_EPISODES):
         print("Save scores")
         np.savetxt(output_folder + '/scores.txt', scores, delimiter=',')
     if len(scores) % DRAW_ARROWS_STEPS == 0:
-        plot_values(draw_image=True, image_name=f'{output_folder}/arrows_{len(scores)}_{WORLD_COLS}x{WORLD_ROWS}.png')
+        plot_values(draw_image=True, image_name=f'{output_folder}/arrows_{len(scores)}.png')
 
 
 # if reward > 0:
     #     break
 np.savetxt(output_folder + '/scores.txt', scores, delimiter=',')
-plot_values(draw_image=True, image_name=f'{output_folder}/arrows_{WORLD_COLS}_{WORLD_ROWS}.png')
+plot_values(draw_image=True, image_name=f'{output_folder}/arrows_final.png')
 
 print("====== all_states === all_actions ===")
 print(nest.GetConnections(all_states, all_actions))
