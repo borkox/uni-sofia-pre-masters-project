@@ -9,7 +9,7 @@ from pathlib import Path
 environment_type = '3x3'
 slippery = False
 clean_output = True
-output_base = "./outputs"
+output_folder = "./outputs"
 max_number_episodes = 60
 opts, args = getopt.getopt(sys.argv[1:],"he:s:o:c:n:")
 print (f"Script {sys.argv[0]} started with options: ", opts)
@@ -36,7 +36,7 @@ for opt, arg in opts:
     elif opt in ("-s"):
         slippery = 'true' == arg.lower()
     elif opt in ("-o"):
-        output_base = arg
+        output_folder = arg
     elif opt in ("-n"):
         max_number_episodes = int(arg)
     elif opt in ("-c"):
@@ -48,12 +48,11 @@ for opt, arg in opts:
 
 print ('Environment: ', environment_type)
 print ('slippery: ', slippery)
-print ('output_folder: ', output_base)
+print ('output_folder: ', output_folder)
 print ('clean_output: ', clean_output)
 
 import nest.voltage_trace
 
-output_folder = output_base + "/" + environment_type
 # Ensure folder with resources exists
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)

@@ -1,0 +1,2857 @@
+(nest-env) bobi@bobi-VirtualBox:~/workspace/uni-sofia-pre-masters-project/script$ python actor-critic-frozen-lake-nest.py -e 3x3 -s true -o outputs_slippery -c true -n 60
+Script actor-critic-frozen-lake-nest.py started with options:  [('-e', '3x3'), ('-s', 'true'), ('-o', 'outputs_slippery'), ('-c', 'true'), ('-n', '60')]
+Environment:  3x3
+slippery:  True
+output_folder:  outputs_slippery
+clean_output:  True
+
+              -- N E S T --
+  Copyright (C) 2004 The NEST Initiative
+
+ Version: 3.3
+ Built: Nov  6 2022 20:15:26
+
+ This program is provided AS IS and comes with
+ NO WARRANTY. See the file LICENSE for details.
+
+ Problems or suggestions?
+   Visit https://www.nest-simulator.org
+
+ Type 'nest.help()' to find out more about NEST.
+
+World dimensions:  3 3
+Observation space: Discrete(9)
+Action space: 4
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+
+chose action: 1   DOWN  at step  0
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  1
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  2
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  3
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  4
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  5
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  6
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  7
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  8
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  9
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  10
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  11
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  12
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  13
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  14
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  15
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  16
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  17
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  18
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  19
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  20
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  21
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  22
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  23
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  24
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  25
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  26
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  27
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  28
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  29
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  30
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+Episode 0 finished after 30 timesteps
+Mean score:  0.0
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  0
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  1
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  2
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  3
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  4
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  5
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  6
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  7
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  8
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  9
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  10
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  11
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  12
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  13
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  14
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  15
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  16
+Scaled reward: 0.0
+[[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  17
+Scaled reward: 100.0
+Learn time
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+Episode 1 finished after 17 timesteps
+Mean score:  0.5
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  0
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  1
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  2
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  3
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  4
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  5
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  6
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  7
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  8
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  9
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  10
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  11
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  12
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  13
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  14
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  15
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  16
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  17
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  18
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  19
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  20
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  21
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+Episode 2 finished after 21 timesteps
+Mean score:  0.3333333333333333
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  0
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  1
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  2
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  3
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  4
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  5
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  6
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  7
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  8
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  9
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  10
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  11
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+Episode 3 finished after 11 timesteps
+Mean score:  0.25
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  0
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  1
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  2
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  3
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  4
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  5
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  6
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  7
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  8
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  9
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  10
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+Episode 4 finished after 10 timesteps
+Mean score:  0.2
+Save scores
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  0
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  1
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  2
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  3
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  4
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  5
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  6
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  7
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  8
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  9
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  10
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  11
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  12
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  13
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  14
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  15
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  16
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  17
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  18
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  19
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  20
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  21
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  22
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  23
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+Episode 5 finished after 23 timesteps
+Mean score:  0.16666666666666666
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  0
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  1
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  2
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  3
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  4
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  5
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  6
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  7
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  8
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  9
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  10
+Scaled reward: 0.0
+[[0.    0.    0.   ]
+ [0.004 0.014 0.   ]
+ [0.    0.504 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  11
+Scaled reward: 100.0
+Learn time
+[[0.    0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.445 0.   ]]
+Episode 6 finished after 11 timesteps
+Mean score:  0.2857142857142857
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  0
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  1
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  2
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  3
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  4
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  5
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  6
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  7
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  8
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  9
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  10
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  11
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  12
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  13
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  14
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  15
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  16
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  17
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  18
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  19
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  20
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  21
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  22
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+Episode 7 finished after 22 timesteps
+Mean score:  0.25
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  0
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  1
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  2
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  3
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  4
+Scaled reward: 0.0
+[[0.005 0.    0.   ]
+ [0.004 0.021 0.   ]
+ [0.    1.449 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  5
+Scaled reward: 100.0
+Learn time
+[[0.005 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.982 0.   ]]
+Episode 8 finished after 5 timesteps
+Mean score:  0.3333333333333333
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  0
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  1
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  2
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  3
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  4
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  5
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  6
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  7
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  8
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  9
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  10
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  11
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  12
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  13
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  14
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  15
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  16
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  17
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  18
+Scaled reward: 0.0
+[[0.004 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.    1.989 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  19
+Scaled reward: 100.0
+Learn time
+[[0.005 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.252 2.924 0.   ]]
+Episode 9 finished after 19 timesteps
+Mean score:  0.4
+Save scores
+[[0.005 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.252 2.924 0.   ]]
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  0
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  1
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  2
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  3
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  4
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  5
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  6
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  7
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  8
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  9
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  10
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  11
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  12
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  13
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  14
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  15
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  16
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  17
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  18
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  19
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  20
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  21
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+Episode 10 finished after 21 timesteps
+Mean score:  0.4
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  0
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  1
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  2
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  3
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  4
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  5
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  6
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  2 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  7
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  8
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  9
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  10
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  11
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  12
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  13
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  14
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  15
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  16
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  17
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  18
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  19
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  20
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  21
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  22
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  23
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  24
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  25
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  26
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  27
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  28
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  29
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  30
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  31
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  32
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  33
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  34
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  35
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  36
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  37
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 0   LEFT  at step  38
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  39
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 2   RIGHT  at step  40
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  41
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  42
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 2   RIGHT  at step  43
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  44
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  45
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  46
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  47
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  48
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Up)
+chose action: 3   UP  at step  49
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 0   LEFT  at step  50
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  51
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  52
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  53
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  54
+Scaled reward: 0.0
+[[0.013 0.    0.   ]
+ [0.004 0.028 0.   ]
+ [0.259 2.928 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 3   UP  at step  55
+Scaled reward: 100.0
+Learn time
+[[0.013 0.    0.   ]
+ [0.004 0.096 0.   ]
+ [0.259 2.997 0.   ]]
+Episode 11 finished after 55 timesteps
+Mean score:  0.4
+STATE:+>>>> 0
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  0
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 1   DOWN  at step  1
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  2
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 2   RIGHT  at step  3
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Right)
+chose action: 0   LEFT  at step  4
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  5
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  6
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  7
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  1 ,  1
+SFF
+FFH
+FFG
+  (Left)
+chose action: 3   UP  at step  8
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Up)
+chose action: 2   RIGHT  at step  9
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Right)
+chose action: 3   UP  at step  10
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  1 ,  0
+SFF
+FFH
+FFG
+  (Up)
+chose action: 1   DOWN  at step  11
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  0 ,  0
+SFF
+FFH
+FFG
+  (Down)
+chose action: 1   DOWN  at step  12
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  0 ,  1
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  13
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  0 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  14
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Down)
+chose action: 0   LEFT  at step  15
+Scaled reward: 0.0
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.259 2.997 0.   ]]
+State position:  1 ,  2
+SFF
+FFH
+FFG
+  (Left)
+chose action: 1   DOWN  at step  16
+Scaled reward: 100.0
+Learn time
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.26  3.26  0.   ]]
+Episode 12 finished after 16 timesteps
+SOLVED
+[[0.025 0.    0.   ]
+ [0.004 0.098 0.   ]
+ [0.26  3.26  0.   ]]
+====== all_states === all_actions ===
+ source   target   synapse model   weight   delay
+-------- -------- --------------- -------- -------
+      1      181    dopa_synapse -9.039e-08   1.000
+      1      271    dopa_synapse 1.161e-12   1.000
+      1      361    dopa_synapse -1.893e-06   1.000
+      1      251    dopa_synapse 1.343e-12   1.000
+      1      341    dopa_synapse 1.166e-06   1.000
+      1      231    dopa_synapse 8.081e-13   1.000
+      1      321    dopa_synapse -1.729e-06   1.000
+      1      211    dopa_synapse -1.141e-07   1.000
+      1      301    dopa_synapse -4.195e-12   1.000
+      1      191    dopa_synapse -7.386e-08   1.000
+      1      281    dopa_synapse -5.450e-12   1.000
+      1      371    dopa_synapse -3.507e-06   1.000
+      1      261    dopa_synapse 6.889e-13   1.000
+      1      351    dopa_synapse 6.384e-06   1.000
+      1      241    dopa_synapse 1.041e-12   1.000
+     ⋮        ⋮               ⋮        ⋮       ⋮
+    180      320    dopa_synapse    0.000   1.000
+    180      210    dopa_synapse    0.000   1.000
+    180      190    dopa_synapse    0.000   1.000
+    180      300    dopa_synapse    0.000   1.000
+    180      280    dopa_synapse    0.000   1.000
+    180      260    dopa_synapse    0.000   1.000
+    180      370    dopa_synapse    0.000   1.000
+    180      350    dopa_synapse    0.000   1.000
+    180      240    dopa_synapse    0.000   1.000
+    180      330    dopa_synapse    0.000   1.000
+    180      220    dopa_synapse    0.000   1.000
+    180      200    dopa_synapse    0.000   1.000
+    180      310    dopa_synapse    0.000   1.000
+    180      290    dopa_synapse    0.000   1.000
+    180      380    dopa_synapse    0.000   1.000
+Script ./plot_scores.py started with options:  [('-i', 'outputs_slippery/3x3/scores.txt'), ('-o', 'outputs_slippery/3x3/final_scores.png')]
+(nest-env) bobi@bobi-VirtualBox:~/workspace/uni-sofia-pre-masters-project/script$
+
