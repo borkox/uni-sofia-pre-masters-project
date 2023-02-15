@@ -60,6 +60,8 @@ if not os.path.exists(output_folder):
 if clean_output:
     [f.unlink() for f in Path(output_folder).glob("*") if f.is_file()]
 
+# GAMMA for Sarsa TD(0)
+GAMMA = 1.0
 # number of episodes to run
 NUM_EPISODES = max_number_episodes
 # max steps per episode
@@ -202,7 +204,7 @@ for i in range(num_actions):
         all_actions = action_group
     else:
         all_actions = all_actions + action_group
-
+print("Len (all_actions)=",all_actions)
 # Create WTA circuit
 wta_ex_weights = 10.5
 wta_inh_weights = -2.6
@@ -229,7 +231,8 @@ nest.Connect(stimulus, all_states, 'all_to_all', {'weight': 0.})
 
 # Create DA pool
 DA_neurons = nest.Create('iaf_psc_alpha', 100)
-vol_trans = nest.Create('volume_transmitter', 1, {'deliver_interval': 10})
+# vol_trans = nest.Create('volume_transmitter', 1, {'deliver_interval': 10})
+vol_trans = nest.Create('volume_transmitter', 1)
 nest.Connect(DA_neurons, vol_trans, 'all_to_all')
 
 # Create reward stimulus
@@ -253,8 +256,8 @@ nest.CopyModel('stdp_dopamine_synapse', 'dopa_synapse_critic', {
 
 critic = nest.Create('iaf_psc_alpha', 50)
 nest.Connect(all_states, critic, 'all_to_all', {'synapse_model': 'dopa_synapse_critic', 'weight': 0.0})
-nest.Connect(critic, DA_neurons, 'all_to_all', {'weight': -5., 'delay': 50})
-nest.Connect(critic, DA_neurons, 'all_to_all', {'weight': 5., 'delay': 1.})
+nest.Connect(critic, DA_neurons, 'all_to_all', {'weight': -200., 'delay': STEP+LEARN_TIME+REST_TIME})
+nest.Connect(critic, DA_neurons, 'all_to_all', {'weight': GAMMA * 200., 'delay': 1.})
 
 critic_noise = nest.Create('poisson_generator', 1, {'rate': CRITIC_NOISE_RATE})
 nest.Connect(critic_noise, critic)
@@ -262,7 +265,7 @@ nest.Connect(critic_noise, critic)
 # Create spike detector
 sd_wta = nest.Create('spike_recorder')
 nest.Connect(all_actions, sd_wta)
-nest.Connect(wta_inh_neurons, sd_wta)
+#nest.Connect(wta_inh_neurons, sd_wta)
 sd_actions = nest.Create('spike_recorder', num_actions)
 for i in range(len(actions)):
     nest.Connect(actions[i], sd_actions[i])
@@ -311,6 +314,8 @@ for episode in range(NUM_EPISODES):
         state_x = int(state % WORLD_COLS)
         state_y = int(state / WORLD_COLS)
 
+        # Supress learning
+        nest.SetStatus(DA_neurons, {'I_e': -1000.})
 
         nest.SetStatus(nest.GetConnections(stimulus, states[state_x][state_y]), {'weight': 1.})
         nest.SetStatus(wta_noise, {'rate': 3000.})
@@ -346,10 +351,18 @@ for episode in range(NUM_EPISODES):
         nest.SetStatus(nest.GetConnections(reward_stimulus, DA_neurons), {'weight': float(reward) * WEIGHT_SCALING})
 
         # learn time
-        if reward > 0:
+        if reward > 0 or not done:
             print("Learn time")
+            # Enable learning
+            nest.SetStatus(DA_neurons, {'I_e': 0.})
             nest.Simulate(LEARN_TIME)
             current_time += LEARN_TIME
+            # Supress learning
+            nest.SetStatus(DA_neurons, {'I_e': -1000.})
+        else:
+            nest.Simulate(LEARN_TIME)
+            current_time += LEARN_TIME
+            print("No learn on this step.")
 
         nest.SetStatus(nest.GetConnections(reward_stimulus, DA_neurons), {'weight': 0.0})
 
@@ -376,7 +389,7 @@ for episode in range(NUM_EPISODES):
 
         # if terminal state, next state val is 0
         if done:
-            print(f"Episode {episode} finished after {step} timesteps")
+            print(f"Episode {episode} finished after {step} timesteps and reward {score}")
             break
 
         # move into new state, discount I
