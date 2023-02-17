@@ -2,11 +2,11 @@
 
 start
 :setup network;
-while (episode < NUM_EPISODES and not Solved?) is (yes)
+while (episode < NUM_EPISODES or Solved?) is (yes)
     :Initialize new episode
     __env.reset()__;
 
-    while (_ < MAX_STEPS and not Done?) is (yes)
+    while (_ < MAX_STEPS or Done?) is (yes)
       :Simulate next step:
       __nest.Simulate(STEP)__
       Choose action.;
