@@ -1,0 +1,28 @@
+@startuml
+
+start
+:създаване на мрежа;
+while (докато има епизоди или решено?) is (да)
+    :Инициализация на епизод
+    __env.reset()__;
+
+    while (докато има стъпки или край на епизод?) is (да)
+      :Симулация на следваща стъпка:
+      __nest.Simulate(STEP)__
+      Избиране на действие.;
+      :Движение на агента:
+      __new_state, reward = env.step(action)__;
+      if (има ли награда ?) then (да)
+        :Обучение мрежа:
+        __nest.Simulate(LEARN_TIME)__;
+      endif
+      :Релаксация неврони:
+      __nest.Simulate(REST_TIME)__;
+    endwhile (не)
+endwhile (не)
+
+:Запазване на резултати;
+
+stop
+
+@enduml
